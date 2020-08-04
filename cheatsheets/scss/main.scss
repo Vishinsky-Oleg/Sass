@@ -1,0 +1,68 @@
+@import "./resets"; //importing partial scss, in our case _resets.scss
+@import "./variables";
+
+@function weight($weight-name) {
+    //Function structure $weight-name is passable argument
+    @return map-get($font-weights, $weight-name);
+}
+
+@mixin flexCenter($direction) {
+    //In object-oriented programming languages, a mixin is a class that contains methods for use by other classes without having to be the parent class of those other classes. Can use argument. Dont forget to include mixin within class or id
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+// Functions should be used with values and mixin should define styles
+
+@mixin theme($light-theme: true) {
+    // working with boolean: if $light-theme (true) {change color}
+    @if $light-theme {
+        background: lighten($primary-color, 100%);
+        color: darken($text-color, 100%);
+    }
+}
+
+@mixin mobile {
+    @media (max-width: $mobile) {
+        @content; //content will be writen in included mixin
+    }
+}
+
+body {
+    background: $primary_color;
+    color: $text-color;
+}
+
+.main {
+    @include flexCenter(row);
+    width: 80% - 40%; //we cant mix types if we want 80% - 400px use calc(80% - 400px)
+    margin: 0 auto;
+
+    #{&}__paragraph1 {
+        //&(ampersant means parant i.e .main    //#{ } means intrepalation everything before .main__paragraph
+        font-weight: weight(bold);
+
+        &:hover {
+            color: pink;
+        }
+    }
+
+    #{&}__paragraph2 {
+        @extend .main__paragraph1; //Extends all styles from paragraph1
+
+        &:hover {
+            //and adds more
+            color: $accent-color;
+        }
+    }
+
+    @include mobile {
+        flex-direction: column;
+    }
+}
+
+.light {
+    @include theme($light-theme: false);
+}
