@@ -1,0 +1,99 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    max-width: 1100px;
+    background-color: aquamarine;
+    margin: 100px auto;
+    height: auto;
+}
+
+.one {
+    text-align: center;
+    border: chocolate 5px inset;
+    outline: aqua 5px inset;
+    text-align: justify;
+    font-variant: small-caps;
+}
+
+/* LISTS */
+.list__css ol .a {
+    list-style-type: upper-roman;
+    list-style-position: inside;
+}
+
+.list__css ol .b {
+    list-style-type: upper-latin;
+}
+
+.list__css ul .c {
+    list-style-type: square;
+    list-style-position: inside;
+}
+
+.list__css ul .d {
+    list-style-type: georgian;
+}
+
+/* TABLES */
+
+.table__css table,
+th,
+td {
+    border-bottom: 1px solid black;
+    border-spacing: 10px;
+    /* border-collapse: collapse; */
+    padding: 15px;
+    vertical-align: bottom;
+    text-align: left;
+}
+
+.table__css > table {
+    width: 100%;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+th {
+    background-color: #4caf50;
+    color: white;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+    float: right;
+}
+
+.bg {
+    background: #000;
+    height: 900px;
+    line-height: 200px;
+    text-align: center;
+    border: 20px solid transparent;
+    /* border-image:  70 round; */
+    border-image-source: url(../img/border.png);
+    border-image-slice: 400 35%;
+    border-image-width: 30;
+    /* border-image-outset: 70; */
+    border-image-repeat: stretch;
+}
+
+.circle {
+    display: inline-block;
+    vertical-align: middle;
+    background: white;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
